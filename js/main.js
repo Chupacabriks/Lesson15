@@ -1,12 +1,12 @@
 'use strict'
 
 
-const DomElement = function (selector, height, width, bg, frontSize, textContent) {
+const DomElement = function (selector, height, width, bg, fontSize, textContent) {
   this.selector = selector;
   this.height = height;
   this.width = width;
   this.bg = bg;
-  this.frontSize = frontSize;
+  this.fontSize = fontSize;
   this.textContent = textContent;
 
   this.createElement = function () {

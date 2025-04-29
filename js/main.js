@@ -75,23 +75,29 @@ font-size:${this.fontSize};
 
 
 
-
+//сначала создается элемент newDomEl
 const newDomEl = new DomElement('.block', '100px', '100px', 'lightgreen', '15px', 'первый элемент');
 newDomEl.createElement();//объект из первого задания
 
-const moveEl = Object.create(newDomEl);
-moveEl.textContent = 'я перемещаюсь';
-moveEl.bg = 'pink';
-moveEl.addStyles = 'position: absolute; top:150px; left:150px' //положение где находится квадрат;
-moveEl.top = 150;//положение откуда начинает движение
-moveEl.left = 150;
-moveEl.createElement();//на основе объекта из первого задания создали для второго и добавили абсолютную позицию
+//затем moveEl после загрузки DOM
+document.addEventListener('DOMContentLoaded', function () {
+  const moveEl = Object.create(newDomEl);
+  moveEl.textContent = 'я перемещаюсь';
+  moveEl.bg = 'pink';
+  moveEl.addStyles = 'position: absolute; top:150px; left:150px' //положение где находится квадрат;
+  moveEl.top = 150;//положение откуда начинает движение
+  moveEl.left = 150;
+  moveEl.createElement();//на основе объекта из первого задания создали для второго и добавили абсолютную позицию
 
-document.addEventListener('keydown', function (event) {
-  if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(event.key)) {
-    moveEl.move(event.key);
-  };
+  document.addEventListener('keydown', function (event) {
+    if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(event.key)) {
+      moveEl.move(event.key);
+    };
+  });
 });
+
+
+
 
 
 
